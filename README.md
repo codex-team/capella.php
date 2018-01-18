@@ -59,7 +59,7 @@ php-curl
 ## Contribution
 Ask a question or report a bug on the [create issue page](https://github.com/codex-team/capella.php/issues/new).
 
-Know how to improve PyCapella? Fork it and send pull request.
+Know how to improve PHP SDK for Capella? Fork it and send pull request.
 
 You can also write questions and suggestions to the [CodeX Team’s email](mailto:team@ifmo.su).
 

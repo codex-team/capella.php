@@ -28,7 +28,8 @@ class Uploader
      * Upload image to capella service
      *
      * @param string $path - path or url to image
-     * @return false|\stdClass – array if path is valid and capella.pics is accessible or false
+     * @return \stdClass – array if path is valid and capella.pics is accessible or false
+     * @throws CapellaException
      */
     public function upload($path)
     {
@@ -47,7 +48,7 @@ class Uploader
 
         }
 
-        return false;
+        throw new CapellaException('Path is not existing file or valid and accessible URL.');
     }
 
     /**
