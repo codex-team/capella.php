@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'api_url' => 'https://capella.ifmo.su/upload/'
+    'api_url' => 'https://capella.pics/'
 ];

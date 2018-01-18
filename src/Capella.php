@@ -1,112 +1,74 @@
 <?php
 
+
 namespace Capella;
 
+require 'Uploader.php';
+require 'CapellaImage.php';
+require 'CapellaException.php';
 
 /**
- * Class Uploader
+ * Class Capella
  * @package Capella
  *
- * PHP SDK for CodeX Capella
+ * Base class for working with Capella API.
  *
  * @example
- * $capella = new \Capella\Uploader();
+ * $image = Capella\Capella::upload('my-nice-picture.jpg');
+ * $url = $image->crop(100, 100)->url();
  *
- * $response = $capella->upload($pathToImg);
+ * $otherImage = \Capella\Capella::image('a123bcd-ef45-6789-1234-a5678b91cd2e);
+ * $otherUrl = $otherImage->pixelize(50)->url();
  *
  */
-class Uploader
+class Capella
 {
 
-    protected $API_URL;
+    private static $uploader = null;
 
-    public function __construct() {
-        $config = $this->loadConfig();
+    private function __construct() {}
 
-        $this->API_URL = $config['api_url'];
+    /**
+     * Upload image to capella.pics
+     *
+     * Return CapellaImage class to apply filters
+     *
+     * @param string $path - path to image. Can be path to local file or external url
+     * @return CapellaImage
+     * @throws CapellaException
+     */
+    public static function upload($path)
+    {
+        if (is_null(self::$uploader)) {
+            self::$uploader = new Uploader();
+        }
+
+        $response = self::$uploader->upload($path);
+
+        if (!$response || !$response->success) {
+            $errormsg = 'Upload to capella.pics failed.';
+
+            if ($response && $response->message) {
+                $errormsg .= ' Reason: ' . $response->message;
+            }
+
+            throw new CapellaException($errormsg);
+        }
+
+        return new CapellaImage($response->id);
+
     }
 
     /**
-     * Upload image to capella service
+     * Return CapellaImage class with passed image $id to apply filters
      *
-     * @param string $path - path or url to image
-     * @return mixed
+     * @param string $id - image id
+     * @return CapellaImage
      */
-    public function upload($path) {
+    public static function image($id) {
 
-        $url = $this->API_URL;
+        return new CapellaImage($id);
 
-        if (file_exists($path)) {
-            /** Path is local file */
-
-            $fileContext = curl_file_create($path);
-            return $this->sendRequest($url, ['file' => $fileContext]);
-
-        } else {
-            /** Path is url */
-
-            return $this->sendRequest($url, ['link' => $path]);
-
-        }
-
-    }
-
-    /**
-     *
-     * Send cURL request to capella service
-     *
-     * @param string $url
-     * @param array $params
-     * @param string $method
-     * @return mixed
-     * @throws \Exception
-     *
-     */
-    protected function sendRequest($url, array $params, $method='POST') {
-
-        $curl = curl_init();
-
-        switch (strtoupper($method)) {
-            case 'POST':
-                curl_setopt($curl, CURLOPT_POST,1);
-
-                if (count($params)) {
-                    curl_setopt($curl,CURLOPT_POSTFIELDS, $params);
-                }
-
-                break;
-
-            case 'GET':
-                if (!count($params)) {
-                    break;
-                }
-
-                $query = '';
-                foreach ($params as $key => $value) {
-                    $query .= $key . '=' . urlencode($value) . '&';
-                }
-
-                $query = trim($query, '&');
-
-                $url .= '?' . $query;
-                break;
-
-            default:
-                throw new \Exception('Unsupported method');
-        }
-
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-
-        $result = curl_exec($curl);
-        curl_close($curl);
-
-        return $result;
-
-    }
-
-    protected function loadConfig() {
-        return include 'config.php';
     }
 
 }
