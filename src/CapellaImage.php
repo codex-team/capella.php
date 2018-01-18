@@ -159,6 +159,7 @@ class CapellaImage
 
         }
 
+        $this->clear();
         return $this->url . $filtersString;
     }
 
