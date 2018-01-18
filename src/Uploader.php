@@ -64,23 +64,23 @@ class Uploader
     private function sendRequest($url, array $params = [], $method = 'POST')
     {
         $curl = curl_init();
-        $params = http_build_query($params);
 
         switch (strtoupper($method)) {
             case 'POST':
                 curl_setopt($curl, CURLOPT_POST,1);
 
-                if (!empty($params)) {
+                if (count($params)) {
                     curl_setopt($curl,CURLOPT_POSTFIELDS, $params);
                 }
 
                 break;
 
             case 'GET':
-                if (empty($params)) {
+                if (!count($params)) {
                     break;
                 }
 
+                $params = http_build_query($params);
                 $url .= '?' . $params;
                 break;
 
