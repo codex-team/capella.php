@@ -12,7 +12,6 @@ namespace Capella;
  */
 class Uploader
 {
-
     private $API_URL;
 
     /**
@@ -29,7 +28,7 @@ class Uploader
      * Upload image to capella service
      *
      * @param string $path - path or url to image
-     * @return false|array – array if path is valid and capella.pics is accessible or false
+     * @return false|\stdClass – array if path is valid and capella.pics is accessible or false
      */
     public function upload($path)
     {
@@ -49,7 +48,6 @@ class Uploader
         }
 
         return false;
-
     }
 
     /**
@@ -97,7 +95,6 @@ class Uploader
         curl_close($curl);
 
         return $result;
-
     }
 
     /**
@@ -158,5 +155,4 @@ class Uploader
     {
         return include 'config.php';
     }
-
 }

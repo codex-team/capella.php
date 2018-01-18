@@ -14,16 +14,18 @@ require 'CapellaException.php';
  * Base class for working with Capella API.
  *
  * @example
- * $image = Capella\Capella::upload('my-nice-picture.jpg');
+ *
+ * use \Capella\Capella;
+ *
+ * $image = Capella::upload('my-nice-picture.jpg');
  * $url = $image->crop(100, 100)->url();
  *
- * $otherImage = \Capella\Capella::image('a123bcd-ef45-6789-1234-a5678b91cd2e);
+ * $otherImage = Capella::image('a123bcd-ef45-6789-1234-a5678b91cd2e');
  * $otherUrl = $otherImage->pixelize(50)->url();
  *
  */
 class Capella
 {
-
     private static $uploader = null;
 
     private function __construct() {}
@@ -56,7 +58,6 @@ class Capella
         }
 
         return new CapellaImage($response->id);
-
     }
 
     /**
@@ -65,10 +66,8 @@ class Capella
      * @param string $id - image id
      * @return CapellaImage
      */
-    public static function image($id) {
-
+    public static function image($id)
+    {
         return new CapellaImage($id);
-
     }
-
 }

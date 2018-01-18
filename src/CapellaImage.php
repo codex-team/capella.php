@@ -18,7 +18,6 @@ namespace Capella;
  */
 class CapellaImage
 {
-
     public $id;
     public $url;
 
@@ -113,7 +112,6 @@ class CapellaImage
      */
     public function url()
     {
-
         $filtersString = '';
         foreach ($this->filters as $filter) {
 
