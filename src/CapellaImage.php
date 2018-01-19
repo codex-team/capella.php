@@ -12,7 +12,7 @@ namespace Capella;
  *  - crop (width, [height, [top, left]])
  *  - pixelize (size)
  *
- * @link https://github.com/codex-team/capella.php/docs/sdk.md#capellacapellaimage
+ * @link https://github.com/codex-team/capella.php/blob/master/docs/sdk.md#capellacapellaimage
  *
  * @property $id - image id
  * @property $url - image url
