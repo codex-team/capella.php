@@ -17,7 +17,7 @@
     "email": "team@ifmo.su",
     "issues": "https://github.com/codex-team/capella.php/issues/new",
     "source": "https://github.com/codex-team/capella.php",
-    "docs": "https://github.com/codex-team/capella.php/blob/master/docs/sdk.md"
+    "docs": "https://github.com/codex-team/capella.php/wiki"
   },
   "require": {
     "php": ">=5.6"

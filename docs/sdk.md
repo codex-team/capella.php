@@ -21,7 +21,7 @@ This class provides two basic methods for working with [Capella API](https://git
 
 
 Return [`CapellaImage`](#capellacapellaimage) object if upload was successful.
-Otherwise throws the [`CapellaImage`](#capellacapellaexception).  
+Otherwise throws the [`CapellaException`](#capellacapellaexception).  
 
 #### `static image($id)`
 
