@@ -6,11 +6,13 @@ namespace Capella;
  * Class CapellaImage
  * @package Capella
  *
- * Class to work with image filters.
+ * Class for working with image filters.
  * Available filters:
  *  - resize (width, [height])
  *  - crop (width, [height, [top, left]])
  *  - pixelize (size)
+ *
+ * @link https://github.com/codex-team/capella.php/docs/sdk.md#capellacapellaimage
  *
  * @property $id - image id
  * @property $url - image url

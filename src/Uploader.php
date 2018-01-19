@@ -7,7 +7,9 @@ namespace Capella;
  * Class Uploader
  * @package Capella
  *
- * Provide image uploading to Capella service
+ * Provide image uploading to the Capella service
+ *
+ * @link https://github.com/codex-team/capella.php/docs/sdk.md#capellauploader
  *
  */
 class Uploader
@@ -25,10 +27,10 @@ class Uploader
     }
 
     /**
-     * Upload image to capella service
+     * Upload image to the Capella service
      *
      * @param string $path - path or url to image
-     * @return \stdClass – array if path is valid and capella.pics is accessible or false
+     * @return \stdClass – array if path is valid and Capella is accessible otherwise false
      * @throws CapellaException
      */
     public function upload($path)
@@ -48,16 +50,16 @@ class Uploader
 
         }
 
-        throw new CapellaException('Path is not existing file or valid and accessible URL.');
+        throw new CapellaException('Provided path links to the nonexistent/invalid file or inaccessible URL');
     }
 
     /**
      *
-     * Send cURL request to capella service
+     * Send cURL request
      *
-     * @param string $url
-     * @param array $params
-     * @param string $method
+     * @param string $url - requested URL
+     * @param array $params - request params
+     * @param string $method - request method. Can be GET or POST
      * @return mixed
      * @throws \Exception
      *
@@ -99,7 +101,7 @@ class Uploader
     }
 
     /**
-     * Check if url is valid and accessible
+     * Check if URL is valid and accessible
      *
      * @param string $url
      * @return bool
@@ -122,7 +124,7 @@ class Uploader
     }
 
     /**
-     * Get url HTTP code
+     * Get URL HTTP code
      *
      * @param string $url
      * @return bool|number

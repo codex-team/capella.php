@@ -9,19 +9,19 @@
 
 ## `\Capella\Capella`
 
-This class provides two basic methods to work with Capella API.
+This class provides two basic methods for working with [Capella API](https://github.com/codex-team/capella#readme).
  
  #### `static upload($path)`
  
- Upload image file to capella.pics, or send image URL.
+ Upload an `Image file` or send an `Image URL` to the Capella.
  
 | Parameter | Type | Description |
 | --------- | ---- | ----------- |
-| `path`    | `string` | Image URL or path to upload to capella.pics |
+| `path`    | `string` | Image URL of File path that should be uploaded to the Capella |
 
 
 Return [`CapellaImage`](#capellacapellaimage) object if upload was successful.
-Otherwise throws [`CapellaImage`](#capellacapellaexception).  
+Otherwise throws the [`CapellaImage`](#capellacapellaexception).  
 
 #### `static image($id)`
 
@@ -29,39 +29,42 @@ Get [`CapellaImage`](#capellacapellaimage) object with passed `$id`
 
 | Parameter | Type     | Description |
 | --------- | -------- | ----------- |
-| `id`      | `string` | Image id, received from capella.pics |
+| `id`      | `string` | Image id received from the Capella |
 
-Return [`CapellaImage`](#capellacapellaimage) object.
+Return the [`CapellaImage`](#capellacapellaimage) object.
 
 ## `\Capella\Uploader`
 
-Upload images to capella using cURL.
+Upload images to the Capella using cURL.
 
 #### `upload($path)`
 | Parameter | Type     | Description |
 | --------- | -------- | ----------- |
-| `path`    | `string` | Image URL or path to upload to capella.pics |
+| `path`    | `string` | Image URL of File path that should be uploaded to the Capella |
 
 
-Return `stdClass` object if path is valid and capella.pics is accessible.
+Return `stdClass` object if path is valid and Capella is accessible.
 
 | Field     | Description |
 | --------- | ----------- |
 | `success` | Upload status |
 | `message` | Error or success message |
 | `id`      | Uploaded image id |
-| `url`     | Uploaded image url |
+| `url`     | Uploaded image URL |
 
-Throws [`CapellaImage`](#capellacapellaexception) if `path` is not existing file or valid and accessible URL. 
+Throws the [`CapellaException`](#capellacapellaexception) 
+if passed `path` either invalid file link or inaccessible URL 
 
 ## `\Capella\CapellaImage`
+
+This class provides methods for applying filters.
 
 #### Properties
 
 | Property | Description |
 | -------- | ----------- |
 | `id`     | Image id    |
-| `url`    | Base image url |
+| `url`    | Base image URL |
 
 
 #### `__constructor($id)`
@@ -70,7 +73,7 @@ Set class properties
 
 | Parameter | Type     | Description |
 | --------- | -------- | ----------- |
-| `id`      | `string` | Image id, received from capella.pics |
+| `id`      | `string` | Image id received from the Capella |
 
 #### `resize($width, $height = null)`
 
@@ -114,7 +117,7 @@ Return `CapellaImage` object with cleared filters
 
 #### `url()`
 
-Return url to image with applied filters.
+Return URL to the image with applied filters.
 
 Return `string`
 

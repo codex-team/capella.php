@@ -1,6 +1,6 @@
 # PHP SDK for CodeX Capella
 
-This repository provides PHP SDK for working with capella.pics API
+This repository provides PHP SDK for working with the Capella API
 
 ## Installation
 
@@ -18,10 +18,12 @@ First, read CodeX Capella [documentation](https://github.com/codex-team/capella#
 ```php
 use \Capella\Capella;
 
-$image = Capella::upload('path-or-url-to-your-pipcture');
+$image = Capella::upload('path-or-url-to-your-picture');
 
 $url = $image->url();
 ```
+
+[More](https://github.com/codex-team/capella.php/docs/sdk.md#static-uploadpath)
 
 #### Get image by known id
 ```php
@@ -29,6 +31,8 @@ use \Capella\Capella;
 
 $image = Capella::image('abcdef-1234-abcd-1234');
 ```
+
+[More](https://github.com/codex-team/capella.php/docs/sdk.md#static-imageid)
 
 #### Working with filters
 
@@ -43,6 +47,8 @@ echo $url; // https://capella.pics/<id>/resize/100
 $url = $image->crop(100, 200);
 echo $url; // https://capella.pics/<id>/crop/100x200
 ```
+
+[More](https://github.com/codex-team/capella.php/docs/sdk.md#capellacapellaimage)
 
 ## Docs
 

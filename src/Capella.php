@@ -13,6 +13,8 @@ require 'CapellaException.php';
  *
  * Base class for working with Capella API.
  *
+ * @link https://github.com/codex-team/capella.php/docs/sdk.md#capellacapella
+ *
  * @example
  *
  * use \Capella\Capella;
@@ -31,11 +33,11 @@ class Capella
     private function __construct() {}
 
     /**
-     * Upload image to capella.pics
+     * Upload image to the Capella
      *
      * Return CapellaImage class to apply filters
      *
-     * @param string $path - path to image. Can be path to local file or external url
+     * @param string $path - path to the Image. Can also be the Link to the local file or external URL
      * @return CapellaImage
      * @throws CapellaException
      */
@@ -48,7 +50,7 @@ class Capella
         $response = self::$uploader->upload($path);
 
         if (!$response || !$response->success) {
-            $errormsg = 'Upload to capella.pics failed.';
+            $errormsg = 'Upload to the Capella failed.';
 
             if ($response && $response->message) {
                 $errormsg .= ' Reason: ' . $response->message;
