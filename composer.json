@@ -3,7 +3,7 @@
   "description": "Useful package for image uploading with capella.pics",
   "version": "1.0.0",
   "type": "library",
-  "keywords": "image, uploading, filters, uploader, capella, codex",
+  "keywords": ["image", "uploading", "filters", "uploader", "capella", "codex"],
   "homepage": "https://github.com/codex-team/capella.php#readme",
   "license": "MIT",
   "authors": [
