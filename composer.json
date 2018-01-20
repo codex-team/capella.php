@@ -1,6 +1,6 @@
 {
   "name": "codex-team/capella",
-  "description": "Package for useful image uploading with capella.pics",
+  "description": "Useful package for image uploading with capella.pics",
   "version": "1.0.0",
   "type": "library",
   "keywords": "image, uploading, filters, uploader, capella, codex",
