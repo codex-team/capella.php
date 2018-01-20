@@ -13,7 +13,7 @@ require 'CapellaException.php';
  *
  * Base class for working with Capella API.
  *
- * @link https://github.com/codex-team/capella.php/docs/sdk.md#capellacapella
+ * @link https://github.com/codex-team/capella.php/wiki/%5CCapella%5CCapella
  *
  * @example
  *

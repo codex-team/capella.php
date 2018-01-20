@@ -9,7 +9,7 @@ namespace Capella;
  *
  * Provide image uploading to the Capella service
  *
- * @link https://github.com/codex-team/capella.php/docs/sdk.md#capellauploader
+ * @link https://github.com/codex-team/capella.php/wiki/%5CCapella%5CUploader
  *
  */
 class Uploader

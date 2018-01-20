@@ -1,15 +1,31 @@
 {
-  "name": "codex-team/capella.php",
-  "description": "PHP SDK for Codex Capella project",
+  "name": "codex-team/capella",
+  "description": "Useful package for image uploading with capella.pics",
+  "version": "1.0.0",
   "type": "library",
+  "keywords": "image, uploading, filters, uploader, capella, codex",
+  "homepage": "https://github.com/codex-team/capella.php#readme",
   "license": "MIT",
+  "authors": [
+    {
+      "name": "Georgy Berezhnoy",
+      "email": "gohabereg@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "team@ifmo.su",
+    "issues": "https://github.com/codex-team/capella.php/issues/new",
+    "source": "https://github.com/codex-team/capella.php",
+    "docs": "https://github.com/codex-team/capella.php/wiki"
+  },
   "require": {
     "php": ">=5.6"
   },
   "autoload": {
     "classmap": [
-      "src/Capella.php"
+      "src/"
     ],
-    "psr-4": {"Capella\\": "src/"}
+    "psr-4": {"CodeX\\Capella\\": "src/"}
   }
 }
