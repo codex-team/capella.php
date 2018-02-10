@@ -16,7 +16,7 @@ First, read CodeX Capella [documentation](https://github.com/codex-team/capella#
 
 #### Uploading
 ```php
-use \Codex\Capella\Capella;
+use \Capella\Capella;
 
 $image = Capella::upload('path-or-url-to-your-picture');
 
@@ -27,7 +27,7 @@ $url = $image->url();
 
 #### Get image by known id
 ```php
-use \Codex\Capella\Capella;
+use \Capella\Capella;
 
 $image = Capella::image('abcdef-1234-abcd-1234');
 ```
@@ -37,7 +37,7 @@ $image = Capella::image('abcdef-1234-abcd-1234');
 #### Working with filters
 
 ```php
-use \Codex\Capella\Capella;
+use \Capella\Capella;
 
 $image = Capella::upload('picture.jpg');
 
